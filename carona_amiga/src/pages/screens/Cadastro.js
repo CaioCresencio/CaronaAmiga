@@ -12,6 +12,8 @@ export default function Cadastro({navigation}) {
     function handleCadastro(){
         navigation.navigate('Login')
     }
+    const [user,setUser] = useState('');
+    const [password, setPassword] = useState('');
 
     
     return (
