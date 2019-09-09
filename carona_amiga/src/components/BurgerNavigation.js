@@ -1,10 +1,12 @@
    import React from 'react'
-   import {createAppContainer, createDrawerNavigator,   createStackNavigator,
+   import {View, SafeAreaView,Button, createAppContainer, createDrawerNavigator,   createStackNavigator,DrawerItems
     } from 'react-navigation'
     import {Dimensions} from 'react-native'
     import Caronas from '../pages/screens/Caronas'
     import CaronasDisponiveis from '../pages/screens/CaronasDisponiveis'
 import MenuButton from './MenuButton';
+import firebase from '../firebase/firebase';
+import DrawerContainer from '../components/DrawerContainer'
 
     const WIDTH = Dimensions.get('window').width;
     const BurgerConfig = {
@@ -36,16 +38,27 @@ import MenuButton from './MenuButton';
                 headerTintColor: '#fff',
             }),
         }
+        
     })
 
+    const signOut_ = function(){
+        firebase.auth().signOut().then(function() {
+            console.log("DIUORGNES")
+        }).catch(function(error) {
+            // An error happened.
+        });
+    }
     const Burger = createDrawerNavigator({
         Caronas: {
             screen: FirstActivity_StackNavigator
         },
         CaronasDisponiveis: {
             screen: SecondActivity_StackNavigator
-        }
-        
-        
+        },
+        contentComponent: DrawerContainer
+
     });
+
+
+  
     export default Burger

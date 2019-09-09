@@ -12,9 +12,7 @@ export default function Cadastro({navigation}) {
     function handleCadastro(){
         navigation.navigate('Login')
     }
-    const [user,setUser] = useState('');
-    const [password, setPassword] = useState('');
-
+ 
     
     return (
         <ImageBackground source={Background} style={{width: '100%', height: '100%'}}>
