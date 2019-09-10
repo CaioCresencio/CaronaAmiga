@@ -9,7 +9,7 @@ export default class MenuButton extends React.Component{
         return(
             <View style={styles.bar}>
                 <TouchableOpacity  onPress={this.props.navigationProps.openDrawer}>
-                    <Icon style={styles.menuIcon} name="reorder" size={28} color="#FFF"/>
+                    <Icon style={styles.menuIcon} name="reorder" size={28} color="#000"/>
                 </TouchableOpacity>
             </View>
             
@@ -24,4 +24,5 @@ const styles = StyleSheet.create({
     bar:{
         flexDirection: 'row',
     },
+
 })

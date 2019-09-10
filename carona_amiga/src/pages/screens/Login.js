@@ -70,7 +70,7 @@ export default class Login extends React.Component {
                 .then((user) => {
                     if(user){ 
                         this.hideAlert();
-                        this.props.navigation.navigate('Burger');
+                        this.props.navigation.navigate('Drawer');
                     }else{
                         this.showAlertMessage(error.code);
                     }
@@ -101,6 +101,7 @@ export default class Login extends React.Component {
 
         }
             
+           //this.props.navigation.navigate('Drawer');
     }
 
     handleRecover(){
@@ -114,7 +115,7 @@ export default class Login extends React.Component {
         }
     }
     handleRegister(){
-        this.props.navigation.navigate('Cadastro')
+        this.props.navigation.navigate('Register')
     }
     render(){
         const {showAlert} = this.state;

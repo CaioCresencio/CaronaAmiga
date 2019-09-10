@@ -1,17 +1,15 @@
-   import React from 'react'
-   import {View, SafeAreaView,Button, createAppContainer, createDrawerNavigator,   createStackNavigator,DrawerItems
-    } from 'react-navigation'
-    import {Dimensions} from 'react-native'
-    import Caronas from '../pages/screens/Caronas'
-    import CaronasDisponiveis from '../pages/screens/CaronasDisponiveis'
-import MenuButton from './MenuButton';
+import React, { Component } from 'react'
+import { createDrawerNavigator, createStackNavigator, createAppContainer } from 'react-navigation'
+import {Dimensions} from 'react-native'
+//Pages
+import Caronas from '../pages/screens/Caronas'
+import CaronasDisponiveis from '../pages/screens/CaronasDisponiveis'
+//Componentes
+import MenuButton from './MenuButton'
 import firebase from '../firebase/firebase';
-import DrawerContainer from '../components/DrawerContainer'
+import DrawerContainer from './DrawerContainer'
 
-    const WIDTH = Dimensions.get('window').width;
-    const BurgerConfig = {
-        drawerWidth: WIDTH*0.83,
-    }
+
 
     const FirstActivity_StackNavigator = createStackNavigator({
         First:{
@@ -41,24 +39,14 @@ import DrawerContainer from '../components/DrawerContainer'
         
     })
 
-    const signOut_ = function(){
-        firebase.auth().signOut().then(function() {
-            console.log("DIUORGNES")
-        }).catch(function(error) {
-            // An error happened.
-        });
-    }
-    const Burger = createDrawerNavigator({
+    const WIDTH = Dimensions.get('window').width 
+    const Drawer = createDrawerNavigator({
         Caronas: {
-            screen: FirstActivity_StackNavigator
-        },
+            screen: FirstActivity_StackNavigator},
         CaronasDisponiveis: {
-            screen: SecondActivity_StackNavigator
-        },
-        contentComponent: DrawerContainer
-
-    });
-
-
-  
-    export default Burger
+            screen: SecondActivity_StackNavigator }
+        },{
+            drawerWidth: WIDTH*0.60,
+            contentComponent: DrawerContainer
+        });
+    export default Drawer

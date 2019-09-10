@@ -9,7 +9,7 @@ import styles from '../styles/styles'
 
 export default function Cadastro({navigation}) {
 
-    function handleCadastro(){
+    function handleRegister(){
         navigation.navigate('Login')
     }
  
@@ -61,7 +61,7 @@ export default function Cadastro({navigation}) {
                 <TouchableOpacity style={styles.button}>
                     <Text style={styles.buttonText}>Cadastrar-se</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.register} onPress={handleCadastro}>
+                <TouchableOpacity style={styles.register} onPress={handleRegister}>
                     <Text style={styles.registerText}>Voltar para o
                         <Text style={{fontWeight:'bold'}}> LOGIN</Text>
                     </Text>
