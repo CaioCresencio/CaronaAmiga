@@ -3,7 +3,6 @@ import { StyleSheet, Text, View, Image ,TouchableOpacity, ScrollView} from 'reac
 import { NavigationActions } from 'react-navigation'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import AwesomeAlert from 'react-native-awesome-alerts';
-import firebase from '../firebase/firebase'
 
 export default class DrawerContainer extends React.Component {
     constructor(props) {
@@ -24,14 +23,6 @@ export default class DrawerContainer extends React.Component {
   render() {
 	const { navigation } = this.props
 	const {showAlertMessage} = this.state;
-	signOut_ = function(){
-        firebase.auth().signOut().then(function() {
-			console.log("DIUORGNES")
-			navigation.navigate('Login')
-        }).catch(function(error) {
-        	console.log("DIUORGNES_ERROR")
-        });
-	}
 	
     return (
     	<View style={styles.container}>
@@ -49,7 +40,7 @@ export default class DrawerContainer extends React.Component {
 						<Icon name="directions-car" style={styles.menu_icon} />
 						<Text style={styles.menu_text}>Oferecer Carona</Text>
 					</TouchableOpacity>
-					<TouchableOpacity style={styles.box_menu} onPress={() => navigation.navigate('CaronasDisponiveis')}>
+					<TouchableOpacity style={styles.box_menu} onPress={() => navigation.navigate('Rides')}>
 						<Icon name="view-list" style={styles.menu_icon} />
 						<Text style={styles.menu_text}>Todas as caronas</Text>
 					</TouchableOpacity>

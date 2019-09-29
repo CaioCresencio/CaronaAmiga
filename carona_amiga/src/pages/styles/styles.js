@@ -1,12 +1,12 @@
 import React from 'react'
 import { StyleSheet } from 'react-native'
-
+import colors from './colors'
 const styles = StyleSheet.create({
     container: {
         flex:1,
         alignItems:'center',
         justifyContent:'center',
-        padding:30,
+        padding:55,
     },
     inputContainer:{
         flexDirection: 'row',
@@ -16,21 +16,21 @@ const styles = StyleSheet.create({
         backgroundColor:'#FFF',
         borderWidth:1,
         borderColor:'#ddd',
-        borderRadius:4,
+        borderRadius:3,
         paddingHorizontal:15,
     },
     input: {
         flex:1,
-        height:45,
+        height:40,
         alignSelf:'stretch', 
         paddingLeft:10,
     },
 
     button:{
-        height:45,
+        height:40,
         alignSelf:'stretch',
-        backgroundColor:'#0066CC',
-        borderRadius:4,
+        backgroundColor: colors.primary,
+        borderRadius:3,
         marginTop:10,
         justifyContent:'center',
         alignItems:'center',
@@ -45,7 +45,8 @@ const styles = StyleSheet.create({
         marginTop:10,
     },
     registerText:{
-        color:'#A0A0A0',
+        color:colors.regular,
+        textAlign:'center',
         fontSize:14,
 
     },

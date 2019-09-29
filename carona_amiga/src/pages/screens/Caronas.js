@@ -6,6 +6,8 @@ import axios from 'axios'
 import {server, showError} from '../../common'
 
 import styles from '../styles/stylesMain'
+import colors from '../styles/colors'
+import MenuButton from '../../Navigation/MenuButton'
 
 
 export default class Caronas extends Component {
@@ -17,8 +19,10 @@ export default class Caronas extends Component {
         }                
         
         return (
-        <View style={styles.container}>
-            <Text>Hello Caronas </Text>
+        <View style={{backgroundColor:colors.secundary, flex:1, justifyContent:'center'}}>
+
+            <MenuButton navigationProps={this.props.navigation} />
+            <Text style={{color:'#FFF'}}>Hello Caronas </Text>
             <TouchableOpacity style={styles.button} onPress={chamar}>
                     <Text style={styles.buttonText}>Entrar</Text>
             </TouchableOpacity>

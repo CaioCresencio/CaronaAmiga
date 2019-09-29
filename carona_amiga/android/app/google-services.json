@@ -1,40 +1,40 @@
 {
-  "project_info": {
-    "project_number": "346370587894",
-    "firebase_url": "https://carona-amiga-6815b.firebaseio.com",
-    "project_id": "carona-amiga-6815b",
-    "storage_bucket": "carona-amiga-6815b.appspot.com"
-  },
-  "client": [
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:346370587894:android:632eb3892ce4ca69",
-        "android_client_info": {
-          "package_name": "com.carona_amiga"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "346370587894-9iijb4bi7davjo4b6lrrdqmfgkp35qus.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAZo5KKchyNle6j7YXo_ePyo1RgT31iOGE"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "346370587894-9iijb4bi7davjo4b6lrrdqmfgkp35qus.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+    "project_info": {
+      "project_number": "346370587894",
+      "firebase_url": "https://carona-amiga-6815b.firebaseio.com",
+      "project_id": "carona-amiga-6815b",
+      "storage_bucket": "carona-amiga-6815b.appspot.com"
+    },
+    "client": [
+      {
+        "client_info": {
+          "mobilesdk_app_id": "1:346370587894:android:632eb3892ce4ca69",
+          "android_client_info": {
+            "package_name": "com.carona_amiga"
+          }
+        },
+        "oauth_client": [
+          {
+            "client_id": "346370587894-9iijb4bi7davjo4b6lrrdqmfgkp35qus.apps.googleusercontent.com",
+            "client_type": 3
+          }
+        ],
+        "api_key": [
+          {
+            "current_key": "AIzaSyAZo5KKchyNle6j7YXo_ePyo1RgT31iOGE"
+          }
+        ],
+        "services": {
+          "appinvite_service": {
+            "other_platform_oauth_client": [
+              {
+                "client_id": "346370587894-9iijb4bi7davjo4b6lrrdqmfgkp35qus.apps.googleusercontent.com",
+                "client_type": 3
+              }
+            ]
+          }
         }
       }
-    }
-  ],
-  "configuration_version": "1"
-}
+    ],
+    "configuration_version": "1"
+  }
