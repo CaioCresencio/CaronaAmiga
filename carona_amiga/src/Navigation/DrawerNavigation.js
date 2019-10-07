@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { createDrawerNavigator, createStackNavigator, createAppContainer , View} from 'react-navigation'
+import { createDrawerNavigator, createStackNavigator, createAppContainer ,createBottomTabNavigator , View} from 'react-navigation'
 
 import {Dimensions} from 'react-native'
 //Pages
@@ -10,14 +10,13 @@ import Rides from '../pages/screens/Rides'
 import MenuButton from './MenuButton'
 
 import DrawerContainer from './DrawerContainer'
-import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 //Style
 
-import { MaterialCommunityIcons } from 'react-native-vector-icons';
+import Icon from 'react-native-vector-icons/MaterialIcons'
 import colors from '../pages/styles/colors'
 
 
-    const FirstActivity_StackNavigator = createStackNavigator({
+   const FirstActivity_StackNavigator = createStackNavigator({
         First:{
             screen: Caronas,
             navigationOptions: ({ navigation }) => ({
@@ -28,8 +27,8 @@ import colors from '../pages/styles/colors'
                     borderBottomColor:colors.transparent,
                     borderBottomWidth: 0,
                 },
-                headerTintColor: colors.white*/
-                header: null,
+                headerTintColor: colors.white
+                header: null,*/
             }),
         }
     })
@@ -76,9 +75,7 @@ import colors from '../pages/styles/colors'
             contentComponent: DrawerContainer
         });
         */
-
-
-    const Drawer = createMaterialBottomTabNavigator(
+    const Drawer = createBottomTabNavigator(
         {
             Caronas: {
                 screen: FirstActivity_StackNavigator,    
@@ -96,18 +93,13 @@ import colors from '../pages/styles/colors'
                 screen: Rides_StackNavigator,
                 navigationOptions: () => ({
                     title: 'Caronas',
-                    tabBarIcon: ({ tintColor }) => (
-                        <MaterialCommunityIcons name="home" color={tintColor} size={24} />
-                      ),
+                    tabBarIcon: <Icon name="home" size={18} color="#000" />
                   }),
             },    
                 
-        },
-        {
-            initialRouteName: 'Caronas',
-            activeColor: '#f0edf6',
-            inactiveColor: '#3e2465',
-            barStyle: { backgroundColor: '#694fad' },
+        },{
+            drawerWidth: WIDTH*0.60,
+            contentComponent: DrawerContainer
         }
     );
     export default Drawer

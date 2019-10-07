@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Image ,TouchableOpacity, ScrollView} from 'reac
 import { NavigationActions } from 'react-navigation'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import AwesomeAlert from 'react-native-awesome-alerts';
+import Logo from '../images/logo.png'
 
 export default class DrawerContainer extends React.Component {
     constructor(props) {
@@ -27,8 +28,7 @@ export default class DrawerContainer extends React.Component {
     return (
     	<View style={styles.container}>
     		<View style={styles.top}>
-				<Icon name="account-circle" style={styles.menu_iconUser} />
-				<Text style={styles.userName}>Caio Cresencio</Text>
+				<Image source={Logo} style={{ width:120, height:120}}/>
 			</View>
         	<View style={styles.menu}>
 				<ScrollView>
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
 	justifyContent:'center',
 	fontSize:13,
 	fontWeight:'600',
-	color:'#00468C',
+	color:'#008db3',
 
   },
   menu:{
@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
 	  paddingHorizontal:20,
   },
   menu_icon:{
-	color:'#00468C',
+	color:'#008db3',
 	fontSize:20,
   },
   

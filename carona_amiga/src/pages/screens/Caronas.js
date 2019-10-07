@@ -20,12 +20,7 @@ export default class Caronas extends Component {
         
         return (
         <View style={{backgroundColor:colors.secundary, flex:1, justifyContent:'center'}}>
-
-            <MenuButton navigationProps={this.props.navigation} />
-            <Text style={{color:'#FFF'}}>Hello Caronas </Text>
-            <TouchableOpacity style={styles.button} onPress={chamar}>
-                    <Text style={styles.buttonText}>Entrar</Text>
-            </TouchableOpacity>
+          
         </View>
         )
     }
