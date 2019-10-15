@@ -68,14 +68,14 @@ export default class Login extends React.Component {
     
  
     handleLogin(){
-        axios.post(`${server}/sessions`,{email:this.state.email, password:this.state.password})
+       /* axios.post(`${server}/sessions`,{email:this.state.email, password:this.state.password})
         .then( (response) => {
             console.log(response.data)
-            this.props.navigation.navigate('Drawer')
+            this.props.navigation.navigate('AppNavigator')
         }).catch( (error) => {
              showErrorLogin(error)
-        })
-        
+        })*/
+        this.props.navigation.navigate('AppNavigator')
     }
 
     handleRecover(){

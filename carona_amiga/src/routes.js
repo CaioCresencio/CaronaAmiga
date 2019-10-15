@@ -2,12 +2,12 @@ import {createAppContainer, createSwitchNavigator, createBottomTabNavigator, cre
 
 import Login from './pages/screens/Login'
 import Register from './pages/screens/Register'
-import Drawer from './Navigation/DrawerNavigation'
+import AppNavigator from './Navigation/AppNavigator'
 
 export default createAppContainer(
     createSwitchNavigator({
         Login,
         Register,
-        Drawer,
+        AppNavigator,
     })
 )

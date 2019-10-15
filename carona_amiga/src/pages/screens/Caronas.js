@@ -19,7 +19,7 @@ export default class Caronas extends Component {
         }                
         
         return (
-        <View style={{backgroundColor:colors.secundary, flex:1, justifyContent:'center'}}>
+        <View style={{backgroundColor:colors.lighter, flex:1, justifyContent:'center'}}>
           
         </View>
         )

@@ -8,7 +8,7 @@ import colors from '../styles/colors'
 export default class CaronasDisponiveis extends Component {
     render(){
         return (
-        <View style={styles.container, {backgroundColor:colors.secundary, flex:1}}>
+        <View style={styles.container, {backgroundColor:colors.light, flex:1}}>
             <Text>Hello Caronas disponiveis</Text>
         </View>
         )
