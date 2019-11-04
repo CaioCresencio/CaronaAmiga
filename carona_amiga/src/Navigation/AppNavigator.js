@@ -3,14 +3,19 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 //Pages
 import Caronas from '../pages/screens/Caronas'
-import CaronasDisponiveis from '../pages/screens/CaronasDisponiveis'
-import Rides from '../pages/screens/Rides'
+import RequestRide from '../pages/screens/RequestRide'
 import Profile from '../pages/screens/Profile'
 
 //Style
 
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import colors from '../pages/styles/colors'
+
+//Components
+
+import ListRides from '../components/ListRides'
+import RidesDetails from '../components/RideDetail'
+
 
 
 const stackConfig = {
@@ -36,8 +41,8 @@ const FirstActivity_StackNavigator = createStackNavigator(
 );
 const Rides_StackNavigator= createStackNavigator(
 		{
-			CaronasDisponiveis: {
-				screen: CaronasDisponiveis,
+			RequestRide: {
+				screen: RequestRide,
 				navigationOptions: ({ navigation }) => ({
 					title: 'Caronas',
 				}),
@@ -47,14 +52,20 @@ const Rides_StackNavigator= createStackNavigator(
 );
 const ListRides_StackNavigator = createStackNavigator(
 	{
-		Rides: {
-			screen: Rides,
+		ListRides: {
+			screen: ListRides,
 			navigationOptions: ({ navigation }) => ({
 				title: 'Caronas',
 			}),
+		},
+		RidesDetails: {
+			screen: RidesDetails,
+			navigationOptions: ({ navigation }) => ({
+				title: 'Detalhes da carona',
+			}),
 		}
 	},
-		/*stackConfig*/
+		stackConfig
 );
 
 const Profile_StackNavigator = createStackNavigator(
@@ -81,7 +92,7 @@ const AppNavigator = createBottomTabNavigator(
 				),
 			}),
 		},
-		CaronasDisponiveis: {
+		RequestRide: {
 			screen: Rides_StackNavigator,
 			navigationOptions: () => ({
 				title: 'Carona',

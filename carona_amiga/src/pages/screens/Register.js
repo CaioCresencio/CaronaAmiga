@@ -8,6 +8,7 @@ import colors from '../styles/colors'
 
 import axios from 'axios'
 import {server,showError} from '../../common'
+import AsyncStorage from '@react-native-community/async-storage';
 
 export default class Cadastro extends React.Component {
 
@@ -19,15 +20,25 @@ export default class Cadastro extends React.Component {
         this.state = {university_id:''}
     };
 
+    setValue = async () => {
+        try {
+          await AsyncStorage.setItem('USER', 'Deu certo caio')
+          Alert.alert('cadastrou')
+        } catch(e) {
+          // save error
+        }
+      }
     handleRegister(){
         axios.post(`${server}/users`,{username:this.state.username, email:this.state.email, password:this.state.password, university_id:this.state.university_id})
         .then( (response) => {
             console.log(response.data)
-            this.props.navigation.navigate('Login')
+            Alert.alert('Cadastrado com sucesso')
+            //this.props.navigation.navigate('Login')
         }).catch( (error) => {
-            showError('Preencha corretamente os campos' )
+            Alert.alert('Erro no cadastro')
         })
-  
+
+        //this.setValue()   
     }
     handleLogin(){
         this.props.navigation.navigate('Login')

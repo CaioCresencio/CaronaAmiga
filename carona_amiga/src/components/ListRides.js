@@ -3,10 +3,10 @@ import { ScrollView, View, FlatList, Image, Text, StyleSheet, TouchableOpacity, 
 import RouteB from '../images/routeB.png'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import colors from '../pages/styles/colors'
-
-
-
-const dados = {
+import axios from 'axios'
+import { server, showErrorLogin } from '../common'
+import AsyncStorage from '@react-native-community/async-storage';
+const dados1 = {
     offerRide: [
         {
             nameP: 'Caio Cresencio',
@@ -53,11 +53,29 @@ const dados = {
 export default class ListRides extends React.Component {
     constructor(props) {
         super(props);
+        this.getListRides()
     }
 
-    handleDetails() {
-        this.props.navigation.navigate('RidesDetails');
-        Alert.alert('here')
+    getListRides = async () => {
+        const user = await AsyncStorage.getItem("USER");
+        const token_json = JSON.parse(user);
+        token = token_json.token.token;
+
+        const config = {
+            'headers': { 'Authorization': 'Bearer '+token }
+        }
+
+        await axios.get(`${server}/rides/`, config)
+            .then((response) => {
+               console.log(response.data)
+            }).catch((error) => {
+                Alert.alert(error.message)
+            })
+
+    }
+
+    handleDetails(item) {
+        this.props.navigation.navigate('RidesDetails', item);
     }
     render() {
         const renderItem = ({ item }) => {
@@ -65,7 +83,7 @@ export default class ListRides extends React.Component {
         }
         const Ride = (props) =>
             <View style={styles.box_rides}>
-                <TouchableOpacity onPress={ () => this.handleDetails()}>
+                <TouchableOpacity onPress={() => this.handleDetails(props)}>
                     <View style={styles.box_item}>
                         <View style={{ flexDirection: 'row', padding: 5 }}>
                             <View style={{ flex: 3, flexDirection: 'row' }}>
@@ -146,7 +164,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         backgroundColor: '#e6e6e6',
         minHeight: 1,
-        borderColor: '#dddd',
+        borderColor: '#ccc',
         borderRadius: 3,
         borderWidth: 1,
         textAlign: 'center',

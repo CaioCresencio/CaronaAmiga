@@ -13,13 +13,13 @@ import Icon from 'react-native-vector-icons/MaterialIcons'
 
 //Server
 import axios from 'axios'
-import {server, showErrorLogin} from '../../common'
-
+import {server, showErrorLogin,getAuth} from '../../common'
+import AsyncStorage from '@react-native-community/async-storage';
 
 export default class Login extends React.Component {
-
     constructor(props) {
         super(props);
+        //props.navigation.navigate(getAuth())
         this.state = { showAlert: false }
         this.state = {email: ''}
         this.state = {password: ''}
@@ -28,6 +28,7 @@ export default class Login extends React.Component {
         this.state = {_title:''}
         this.state ={showAlertRecover:false}
       };
+      
     
     showAlert = () => {
         this.setState({
@@ -66,16 +67,41 @@ export default class Login extends React.Component {
         });
       };
     
- 
+      auth =  async () => {
+        try { 
+            const value = await AsyncStorage.getItem('USER')
+            if (value !== null) {
+
+                return value;
+            }
+        } catch (e) {
+            Alert.alert('Erro no AsyncStorage!')
+        }
+    }
+
+    saveStorage = async (user) => {
+        try {
+          await AsyncStorage.setItem('USER', user)
+          Alert.alert(user.toString())
+        } catch(e) {
+          // save error
+          Alert.alert('erro')
+        }
+      }
     handleLogin(){
-       /* axios.post(`${server}/sessions`,{email:this.state.email, password:this.state.password})
+        
+       axios.post(`${server}/sessions`,{email:this.state.email, password:this.state.password})
         .then( (response) => {
+            const user = {email:this.state.email, token:response.data}
             console.log(response.data)
+            this.saveStorage(JSON.stringify(user))
+        
             this.props.navigation.navigate('AppNavigator')
         }).catch( (error) => {
              showErrorLogin(error)
-        })*/
-        this.props.navigation.navigate('AppNavigator')
+        })
+       
+       // this.props.navigation.navigate('AppNavigator')
     }
 
     handleRecover(){
